@@ -7,30 +7,83 @@
   <script src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script>
-    google.charts.load('current', { packages: ['geochart'] });
-    google.charts.setOnLoadCallback(drawMap);
+  google.charts.load('current', { packages: ['geochart'] });
+  google.charts.setOnLoadCallback(init);
 
-    function drawMap() {
-      var data = google.visualization.arrayToDataTable([
-        ['Country', 'Athletes'],
-        ['Portugal', 23],
-        ['Spain', 17],
-        ['United States', 104]
-      ]);
+  // ✅ EDIT YOUR DATA ONLY HERE
+  const rows = [
+    { country: 'Portugal',      Total: 23,  Men: 10, Women: 13, Youth: 4,  Adults: 15, OlderAdults: 4 },
+    { country: 'Spain',         Total: 17,  Men: 8,  Women: 9,  Youth: 3,  Adults: 11, OlderAdults: 3 },
+    { country: 'United States', Total: 104, Men: 55, Women: 49, Youth: 20, Adults: 70, OlderAdults: 14 }
+  ];
 
-      var options = {
-        legend: 'none'
-      };
+  let chart;
 
-      var chart = new google.visualization.GeoChart(
-        document.getElementById('map')
-      );
-      chart.draw(data, options);
-    }
-  </script>
+  function init() {
+    chart = new google.visualization.GeoChart(document.getElementById('map'));
+
+    drawWithMetric(document.getElementById('metric').value);
+
+    document.getElementById('metric').addEventListener('change', (e) => {
+      drawWithMetric(e.target.value);
+    });
+
+    window.addEventListener('resize', () => {
+      drawWithMetric(document.getElementById('metric').value);
+    });
+  }
+
+  function drawWithMetric(metricKey) {
+    const tableRows = rows.map(r => ([
+      r.country,
+      Number(r[metricKey] ?? 0),
+      tooltipHTML(r)
+    ]));
+
+    const data = google.visualization.arrayToDataTable([
+      ['Country', metricKey, { role: 'tooltip', type: 'string', p: { html: true } }],
+      ...tableRows
+    ]);
+
+    const options = {
+      legend: 'none',
+      tooltip: { isHtml: true }
+    };
+
+    chart.draw(data, options);
+  }
+
+  function tooltipHTML(r) {
+    return (
+      '<div style="padding:8px 10px; font-family:Arial; font-size:13px;">' +
+        '<b>' + r.country + '</b><br>' +
+        'Total: ' + r.Total + '<br>' +
+        'Men: ' + r.Men + ' | Women: ' + r.Women + '<br>' +
+        'Youth: ' + r.Youth + ' | Adults: ' + r.Adults + ' | Older adults: ' + r.OlderAdults +
+      '</div>'
+    );
+  }
+</script>
+
 </head>
 
 <body>
+
+  <div style="margin:10px 0;">
+    <label for="metric">
+      Color map by:&nbsp;
+    </label>
+    <select id="metric">
+      <option value="Total" selected>Total</option>
+      <option value="Men">Men</option>
+      <option value="Women">Women</option>
+      <option value="Youth">Youth</option>
+      <option value="Adults">Adults</option>
+      <option value="OlderAdults">Older adults</option>
+    </select>
+  </div>
+
   <div id="map" style="width:100%; height:650px;"></div>
+
 </body>
 </html>
