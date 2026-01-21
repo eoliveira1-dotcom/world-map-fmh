@@ -11,10 +11,37 @@
   google.charts.setOnLoadCallback(init);
 
   const rows = [
-    { country: 'Portugal',      Total: 23,  Men: 10, Women: 13, Youth: 4,  Adults: 15, OlderAdults: 4 },
-    { country: 'Spain',         Total: 17,  Men: 8,  Women: 9,  Youth: 3,  Adults: 11, OlderAdults: 3 },
-    { country: 'United States', Total: 104, Men: 55, Women: 49, Youth: 20, Adults: 70, OlderAdults: 14 }
-  ];
+  { country: 'Italy', Total: 9345, Female: 3869, Male: 5476, Children: 1778, Adults: 5223, "Older Adults": 2344 },
+  { country: 'Albania', Total: 247, Female: 110, Male: 137, Children: 168, Adults: 79, "Older Adults": 0 },
+  { country: 'Portugal', Total: 2038, Female: 1144, Male: 894, Children: 398, Adults: 1474, "Older Adults": 166 },
+  { country: 'Brazil', Total: 3499, Female: 1482, Male: 2017, Children: 1429, Adults: 1533, "Older Adults": 537 },
+  { country: 'United States', Total: 15971, Female: 8007, Male: 7964, Children: 6629, Adults: 8842, "Older Adults": 500 },
+  { country: 'Germany', Total: 229409, Female: 192884, Male: 36525, Children: 15604, Adults: 202367, "Older Adults": 11438 },
+  { country: 'Mexico', Total: 3588, Female: 1824, Male: 1764, Children: 1677, Adults: 1102, "Older Adults": 809 },
+  { country: 'South Africa', Total: 2462, Female: 1235, Male: 1227, Children: 1271, Adults: 1191, "Older Adults": 0 },
+  { country: 'Spain', Total: 337, Female: 131, Male: 206, Children: 73, Adults: 264, "Older Adults": 0 },
+  { country: 'Uganda', Total: 979, Female: 531, Male: 448, Children: 978, Adults: 1, "Older Adults": 0 },
+  { country: 'Japan', Total: 7282, Female: 3284, Male: 3998, Children: 82, Adults: 5537, "Older Adults": 1663 },
+  { country: 'Nepal', Total: 482, Female: 235, Male: 247, Children: 481, Adults: 1, "Older Adults": 0 },
+  { country: 'United Kingdom', Total: 1425, Female: 762, Male: 663, Children: 694, Adults: 697, "Older Adults": 34 },
+  { country: 'Kenya', Total: 641, Female: 381, Male: 260, Children: 641, Adults: 0, "Older Adults": 0 },
+  { country: 'Jordan', Total: 22005, Female: 16500, Male: 5505, Children: 1731, Adults: 19168, "Older Adults": 1106 },
+  { country: 'Burkina Faso', Total: 808, Female: 408, Male: 400, Children: 808, Adults: 0, "Older Adults": 0 },
+  { country: 'Israel', Total: 1004, Female: 591, Male: 413, Children: 6, Adults: 946, "Older Adults": 52 },
+  { country: 'China', Total: 11763, Female: 5656, Male: 6107, Children: 25, Adults: 8954, "Older Adults": 2784 },
+  { country: 'New Zealand', Total: 722, Female: 376, Male: 346, Children: 0, Adults: 640, "Older Adults": 82 },
+  { country: 'Czechia', Total: 2597, Female: 1801, Male: 796, Children: 1437, Adults: 675, "Older Adults": 485 },
+  { country: 'Australia', Total: 109, Female: 85, Male: 24, Children: 0, Adults: 76, "Older Adults": 33 },
+  { country: 'Slovakia', Total: 859, Female: 575, Male: 284, Children: 0, Adults: 859, "Older Adults": 0 },
+  { country: 'Pakistan', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, "Older Adults": 0 },
+  { country: 'Nigeria', Total: 2, Female: 1, Male: 1, Children: 0, Adults: 2, "Older Adults": 0 },
+  { country: 'Guinea Bissau', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, "Older Adults": 0 },
+  { country: 'Kuwait', Total: 158, Female: 83, Male: 75, Children: 158, Adults: 0, "Older Adults": 0 },
+  { country: 'Myanmar', Total: 105, Female: 47, Male: 58, Children: 105, Adults: 0, "Older Adults": 0 },
+  { country: 'Tanzania', Total: 266, Female: 121, Male: 145, Children: 1, Adults: 265, "Older Adults": 0 },
+  { country: 'Denmark', Total: 550, Female: 438, Male: 112, Children: 0, Adults: 509, "Older Adults": 41 },
+  { country: 'India', Total: 3025, Female: 1735, Male: 1290, Children: 1828, Adults: 1092, "Older Adults": 105 }
+];
 
   let chart;
 
