@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>World Map FMH</title>
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script>
+    google.charts.load('current', { packages: ['geochart'] });
+    google.charts.setOnLoadCallback(drawMap);
+
+    function drawMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Athletes'],
+        ['Portugal', 23],
+        ['Spain', 17],
+        ['United States', 104]
+      ]);
+
+      var options = {
+        legend: 'none'
+      };
+
+      var chart = new google.visualization.GeoChart(
+        document.getElementById('map')
+      );
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+  <div id="map" style="width:100%; height:650px;"></div>
+</body>
+</html>
