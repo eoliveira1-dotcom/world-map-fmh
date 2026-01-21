@@ -61,35 +61,51 @@ const rows = [
   }
 
   function drawWithMetric(metricKey) {
-    const tableRows = rows.map(r => ([
-      r.country,
-      Number(r[metricKey] ?? 0),
-      tooltipHTML(r)
-    ]));
+const tableRows = rows
+  .filter(r => Number(r[metricKey] ?? 0) > 0)
+  .map(r => ([
+    r.country,
+    Number(r[metricKey]),
+    tooltipHTML(r)
+  ]));
+
 
     const data = google.visualization.arrayToDataTable([
       ['Country', metricKey, { role: 'tooltip', type: 'string', p: { html: true } }],
       ...tableRows
     ]);
 
-    const options = {
-      legend: 'none',
-      tooltip: { isHtml: true }
-    };
+const options = {
+  legend: 'none',
+  tooltip: { isHtml: true },
+
+  datalessRegionColor: '#eeeeee',
+
+  colorAxis: {
+    values: [1, 100, 1000, 5000, 10000],
+    colors: ['#f7fbff', '#c6dbef', '#9ecae1', '#6baed6', '#2171b5', '#08306b']
+  }
+};
 
     chart.draw(data, options);
   }
+
+    function fmt(n) {
+  return Number(n || 0).toLocaleString('en-US'); // commas: 229,409
+  // for spaces instead: use 'pt-PT'
+}
 
 function tooltipHTML(r) {
   return (
     '<div style="padding:8px 10px; font-family:Arial; font-size:13px; line-height:1.4;">' +
       '<div style="font-weight:700; margin-bottom:6px;">' + r.country + '</div>' +
-      '<div><b>Total:</b> ' + r.Total + '</div>' +
-      '<div><b>Female:</b> ' + r.Female + ' &nbsp; <b>Male:</b> ' + r.Male + '</div>' +
-      '<div><b>Children:</b> ' + r.Children + ' &nbsp; <b>Adults:</b> ' + r.Adults + ' &nbsp; <b>Elderly:</b> ' + r.Elderly + '</div>' +
+      '<div><b>Total:</b> ' + fmt(r.Total) + '</div>' +
+      '<div><b>Female:</b> ' + fmt(r.Female) + ' &nbsp; <b>Male:</b> ' + fmt(r.Male) + '</div>' +
+      '<div><b>Children:</b> ' + fmt(r.Children) + ' &nbsp; <b>Adults:</b> ' + fmt(r.Adults) + ' &nbsp; <b>Elderly:</b> ' + fmt(r.Elderly) + '</div>' +
     '</div>'
   );
 }
+
 
 
 </script>
@@ -110,9 +126,43 @@ function tooltipHTML(r) {
   <option value="Adults">Adults</option>
   <option value="Elderly">Elderly</option>
 </select>
-
-
   </div>
+
+  <div id="legend"
+     style="display:flex;
+            gap:14px;
+            align-items:center;
+            flex-wrap:wrap;
+            font-family:Arial;
+            font-size:13px;
+            margin:8px 0;">
+
+  <div style="display:flex; align-items:center; gap:6px;">
+    <span style="width:14px; height:14px; background:#f7fbff; display:inline-block; border:1px solid #ccc;"></span>
+    n &lt; 100
+  </div>
+
+  <div style="display:flex; align-items:center; gap:6px;">
+    <span style="width:14px; height:14px; background:#c6dbef; display:inline-block; border:1px solid #ccc;"></span>
+    100–999
+  </div>
+
+  <div style="display:flex; align-items:center; gap:6px;">
+    <span style="width:14px; height:14px; background:#9ecae1; display:inline-block; border:1px solid #ccc;"></span>
+    1,000–4,999
+  </div>
+
+  <div style="display:flex; align-items:center; gap:6px;">
+    <span style="width:14px; height:14px; background:#6baed6; display:inline-block; border:1px solid #ccc;"></span>
+    5,000–9,999
+  </div>
+
+  <div style="display:flex; align-items:center; gap:6px;">
+    <span style="width:14px; height:14px; background:#2171b5; display:inline-block; border:1px solid #ccc;"></span>
+    ≥ 10,000
+  </div>
+
+</div>
 
   <div id="map" style="width:100%; height:650px;"></div>
 
