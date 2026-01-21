@@ -84,21 +84,21 @@ const options = {
 colorAxis: {
   values: [1, 100, 1000, 5000, 10000],
   colors: [
-    '#e5f5e0',  // very light green (n < 100)
-    '#c7e9c0',  // light green (100–999)
-    '#a1d99b',  // medium green (1,000–4,999)
-    '#74c476',  // darker green (5,000–9,999)
-    '#238b45'   // dark green (≥ 10,000)
+    '#e5f5e0',
+    '#c7e9c0',
+    '#a1d99b',
+    '#74c476',
+    '#238b45'
   ]
+}
 };
 
     chart.draw(data, options);
   }
 
     function fmt(n) {
-  return Number(n || 0).toLocaleString('en-US'); // commas: 229,409
-  // for spaces instead: use 'pt-PT'
-}
+  return Number(n || 0).toLocaleString('en-US');
+ }
 
 function tooltipHTML(r) {
   return (
