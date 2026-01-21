@@ -79,12 +79,14 @@ const options = {
   legend: 'none',
   tooltip: { isHtml: true },
 
-  datalessRegionColor: '#eeeeee',
+datalessRegionColor: '#eeeeee'
 
-  colorAxis: {
-    values: [0, 1, 100, 1000, 5000, 10000],
-    colors: ['#eeeeee', '#f7fbff', '#c6dbef', '#9ecae1', '#6baed6', '#2171b5', '#08306b']
-  }
+
+colorAxis: {
+  values: [1, 100, 1000, 5000, 10000],
+  colors: ['#f7fbff', '#c6dbef', '#9ecae1', '#6baed6', '#2171b5']
+}
+
 };
 
     chart.draw(data, options);
