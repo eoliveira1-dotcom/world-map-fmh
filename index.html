@@ -10,38 +10,39 @@
   google.charts.load('current', { packages: ['geochart'] });
   google.charts.setOnLoadCallback(init);
 
-  const rows = [
-  { country: 'Italy', Total: 9345, Female: 3869, Male: 5476, Children: 1778, Adults: 5223, "Older Adults": 2344 },
-  { country: 'Albania', Total: 247, Female: 110, Male: 137, Children: 168, Adults: 79, "Older Adults": 0 },
-  { country: 'Portugal', Total: 2038, Female: 1144, Male: 894, Children: 398, Adults: 1474, "Older Adults": 166 },
-  { country: 'Brazil', Total: 3499, Female: 1482, Male: 2017, Children: 1429, Adults: 1533, "Older Adults": 537 },
-  { country: 'United States', Total: 15971, Female: 8007, Male: 7964, Children: 6629, Adults: 8842, "Older Adults": 500 },
-  { country: 'Germany', Total: 229409, Female: 192884, Male: 36525, Children: 15604, Adults: 202367, "Older Adults": 11438 },
-  { country: 'Mexico', Total: 3588, Female: 1824, Male: 1764, Children: 1677, Adults: 1102, "Older Adults": 809 },
-  { country: 'South Africa', Total: 2462, Female: 1235, Male: 1227, Children: 1271, Adults: 1191, "Older Adults": 0 },
-  { country: 'Spain', Total: 337, Female: 131, Male: 206, Children: 73, Adults: 264, "Older Adults": 0 },
-  { country: 'Uganda', Total: 979, Female: 531, Male: 448, Children: 978, Adults: 1, "Older Adults": 0 },
-  { country: 'Japan', Total: 7282, Female: 3284, Male: 3998, Children: 82, Adults: 5537, "Older Adults": 1663 },
-  { country: 'Nepal', Total: 482, Female: 235, Male: 247, Children: 481, Adults: 1, "Older Adults": 0 },
-  { country: 'United Kingdom', Total: 1425, Female: 762, Male: 663, Children: 694, Adults: 697, "Older Adults": 34 },
-  { country: 'Kenya', Total: 641, Female: 381, Male: 260, Children: 641, Adults: 0, "Older Adults": 0 },
-  { country: 'Jordan', Total: 22005, Female: 16500, Male: 5505, Children: 1731, Adults: 19168, "Older Adults": 1106 },
-  { country: 'Burkina Faso', Total: 808, Female: 408, Male: 400, Children: 808, Adults: 0, "Older Adults": 0 },
-  { country: 'Israel', Total: 1004, Female: 591, Male: 413, Children: 6, Adults: 946, "Older Adults": 52 },
-  { country: 'China', Total: 11763, Female: 5656, Male: 6107, Children: 25, Adults: 8954, "Older Adults": 2784 },
-  { country: 'New Zealand', Total: 722, Female: 376, Male: 346, Children: 0, Adults: 640, "Older Adults": 82 },
-  { country: 'Czechia', Total: 2597, Female: 1801, Male: 796, Children: 1437, Adults: 675, "Older Adults": 485 },
-  { country: 'Australia', Total: 109, Female: 85, Male: 24, Children: 0, Adults: 76, "Older Adults": 33 },
-  { country: 'Slovakia', Total: 859, Female: 575, Male: 284, Children: 0, Adults: 859, "Older Adults": 0 },
-  { country: 'Pakistan', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, "Older Adults": 0 },
-  { country: 'Nigeria', Total: 2, Female: 1, Male: 1, Children: 0, Adults: 2, "Older Adults": 0 },
-  { country: 'Guinea Bissau', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, "Older Adults": 0 },
-  { country: 'Kuwait', Total: 158, Female: 83, Male: 75, Children: 158, Adults: 0, "Older Adults": 0 },
-  { country: 'Myanmar', Total: 105, Female: 47, Male: 58, Children: 105, Adults: 0, "Older Adults": 0 },
-  { country: 'Tanzania', Total: 266, Female: 121, Male: 145, Children: 1, Adults: 265, "Older Adults": 0 },
-  { country: 'Denmark', Total: 550, Female: 438, Male: 112, Children: 0, Adults: 509, "Older Adults": 41 },
-  { country: 'India', Total: 3025, Female: 1735, Male: 1290, Children: 1828, Adults: 1092, "Older Adults": 105 }
+const rows = [
+  { country: 'Italy', Total: 9345, Female: 3869, Male: 5476, Children: 1778, Adults: 5223, Elderly: 2344 },
+  { country: 'Albania', Total: 247, Female: 110, Male: 137, Children: 168, Adults: 79, Elderly: 0 },
+  { country: 'Portugal', Total: 2038, Female: 1144, Male: 894, Children: 398, Adults: 1474, Elderly: 166 },
+  { country: 'Brazil', Total: 3499, Female: 1482, Male: 2017, Children: 1429, Adults: 1533, Elderly: 537 },
+  { country: 'United States', Total: 15971, Female: 8007, Male: 7964, Children: 6629, Adults: 8842, Elderly: 500 },
+  { country: 'Germany', Total: 229409, Female: 192884, Male: 36525, Children: 15604, Adults: 202367, Elderly: 11438 },
+  { country: 'Mexico', Total: 3588, Female: 1824, Male: 1764, Children: 1677, Adults: 1102, Elderly: 809 },
+  { country: 'South Africa', Total: 2462, Female: 1235, Male: 1227, Children: 1271, Adults: 1191, Elderly: 0 },
+  { country: 'Spain', Total: 337, Female: 131, Male: 206, Children: 73, Adults: 264, Elderly: 0 },
+  { country: 'Uganda', Total: 979, Female: 531, Male: 448, Children: 978, Adults: 1, Elderly: 0 },
+  { country: 'Japan', Total: 7282, Female: 3284, Male: 3998, Children: 82, Adults: 5537, Elderly: 1663 },
+  { country: 'Nepal', Total: 482, Female: 235, Male: 247, Children: 481, Adults: 1, Elderly: 0 },
+  { country: 'United Kingdom', Total: 1425, Female: 762, Male: 663, Children: 694, Adults: 697, Elderly: 34 },
+  { country: 'Kenya', Total: 641, Female: 381, Male: 260, Children: 641, Adults: 0, Elderly: 0 },
+  { country: 'Jordan', Total: 22005, Female: 16500, Male: 5505, Children: 1731, Adults: 19168, Elderly: 1106 },
+  { country: 'Burkina Faso', Total: 808, Female: 408, Male: 400, Children: 808, Adults: 0, Elderly: 0 },
+  { country: 'Israel', Total: 1004, Female: 591, Male: 413, Children: 6, Adults: 946, Elderly: 52 },
+  { country: 'China', Total: 11763, Female: 5656, Male: 6107, Children: 25, Adults: 8954, Elderly: 2784 },
+  { country: 'New Zealand', Total: 722, Female: 376, Male: 346, Children: 0, Adults: 640, Elderly: 82 },
+  { country: 'Czechia', Total: 2597, Female: 1801, Male: 796, Children: 1437, Adults: 675, Elderly: 485 },
+  { country: 'Australia', Total: 109, Female: 85, Male: 24, Children: 0, Adults: 76, Elderly: 33 },
+  { country: 'Slovakia', Total: 859, Female: 575, Male: 284, Children: 0, Adults: 859, Elderly: 0 },
+  { country: 'Pakistan', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, Elderly: 0 },
+  { country: 'Nigeria', Total: 2, Female: 1, Male: 1, Children: 0, Adults: 2, Elderly: 0 },
+  { country: 'Guinea Bissau', Total: 1, Female: 0, Male: 1, Children: 0, Adults: 1, Elderly: 0 },
+  { country: 'Kuwait', Total: 158, Female: 83, Male: 75, Children: 158, Adults: 0, Elderly: 0 },
+  { country: 'Myanmar', Total: 105, Female: 47, Male: 58, Children: 105, Adults: 0, Elderly: 0 },
+  { country: 'Tanzania', Total: 266, Female: 121, Male: 145, Children: 1, Adults: 265, Elderly: 0 },
+  { country: 'Denmark', Total: 550, Female: 438, Male: 112, Children: 0, Adults: 509, Elderly: 41 },
+  { country: 'India', Total: 3025, Female: 1735, Male: 1290, Children: 1828, Adults: 1092, Elderly: 105 }
 ];
+
 
   let chart;
 
@@ -79,16 +80,18 @@
     chart.draw(data, options);
   }
 
-  function tooltipHTML(r) {
-    return (
-      '<div style="padding:8px 10px; font-family:Arial; font-size:13px;">' +
-        '<b>' + r.country + '</b><br>' +
-        'Total: ' + r.Total + '<br>' +
-        'Men: ' + r.Men + ' | Women: ' + r.Women + '<br>' +
-        'Youth: ' + r.Youth + ' | Adults: ' + r.Adults + ' | Older adults: ' + r.OlderAdults +
-      '</div>'
-    );
-  }
+function tooltipHTML(r) {
+  return (
+    '<div style="padding:8px 10px; font-family:Arial; font-size:13px; line-height:1.4;">' +
+      '<div style="font-weight:700; margin-bottom:6px;">' + r.country + '</div>' +
+      '<div><b>Total:</b> ' + r.Total + '</div>' +
+      '<div><b>Female:</b> ' + r.Female + ' &nbsp; <b>Male:</b> ' + r.Male + '</div>' +
+      '<div><b>Children:</b> ' + r.Children + ' &nbsp; <b>Adults:</b> ' + r.Adults + ' &nbsp; <b>Elderly:</b> ' + r.Elderly + '</div>' +
+    '</div>'
+  );
+}
+
+
 </script>
 
 </head>
@@ -99,14 +102,16 @@
     <label for="metric">
       Color map by:&nbsp;
     </label>
-    <select id="metric">
-      <option value="Total" selected>Total</option>
-      <option value="Men">Men</option>
-      <option value="Women">Women</option>
-      <option value="Youth">Youth</option>
-      <option value="Adults">Adults</option>
-      <option value="OlderAdults">Older adults</option>
-    </select>
+<select id="metric">
+  <option value="Total" selected>Total</option>
+  <option value="Female">Female</option>
+  <option value="Male">Male</option>
+  <option value="Children">Children</option>
+  <option value="Adults">Adults</option>
+  <option value="Elderly">Elderly</option>
+</select>
+
+
   </div>
 
   <div id="map" style="width:100%; height:650px;"></div>
